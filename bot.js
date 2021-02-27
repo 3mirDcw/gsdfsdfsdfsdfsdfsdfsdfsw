@@ -20,7 +20,7 @@ app.get("/", (request, response) => {
   console.log(Date.now() + " PİNGLENDİ ");
   response.sendStatus(200);
 });
-app.listen(8000);
+//app.listen(8000);
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
