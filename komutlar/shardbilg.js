@@ -8,13 +8,13 @@ exports.run = async (client, message, args) => {
   let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "!!";
 
 
-  if (message.author.id !== "680124536871845903")
+  if (message.author.id !== "789796656290856981")
   return message.channel.send(
     new Discord.MessageEmbed()
     .setTitle(`**Yetki Hatası**`)
     .setColor('#fa0606')
     .setThumbnail(message.author.avatarURL())
-    .setDescription(`**•** \`${prefix}shard\` **kullanmak için,** \`Botun Sahibi\` **yetkisine sahip olman gerekiyor.**`)  
+    .setDescription(`**•** \`!shard\` **kullanmak için,** \`Botun Sahibi\` **yetkisine sahip olman gerekiyor.**`)  
   
   ).then(a => a.delete({timeout: 10000}));
 
@@ -28,7 +28,7 @@ let shardinfo = {
   }
 let i = message.guild.shardID
     let embed = new Discord.MessageEmbed()
-    .setAuthor(`EtherZ Shard Bilgi`, message.author.avatarURL())
+    .setAuthor(`ShowTeam Shard Bilgi`, message.author.avatarURL())
     .setFooter(`Bu sunucunun shardı: ${i+1}`)
     .setColor('BLUE')
     for(i=0;i<client.shard.count;i++) {
