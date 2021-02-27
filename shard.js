@@ -4,7 +4,7 @@ const express = require('express');
 const ayarlar = require('./ayarlar.json');
 const captain = new Discord.ShardingManager('./bot.js', {
     totalShards: 2,
-    token: (process.env.token)//sa kodır abler
+    token: (ayarlar.token)//sa kodır abler
 });
 
 captain.on('shardCreate', shard => {

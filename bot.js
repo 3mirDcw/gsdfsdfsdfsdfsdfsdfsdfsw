@@ -122,7 +122,7 @@ client.on("error", e => {
   console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
 });
 
-client.login(process.env.token);
+client.login(ayarlar.token);
 ///==========komutlar==========\\\
 client.on("guildMemberAdd", async(member) => {
   let sunucupaneli = await db.fetch(`sunucupanel_${member.guild.id}`)
@@ -1966,3 +1966,51 @@ client.on("ready", () => {
   client.user.setStatus("idle");
   client.user.setActivity(`!yardım Shard 10/1`)
 })
+client.emojiler = {
+
+   "gold": "",  //?PARAM DAKİ ALTIN EMOJİSİ      
+   "paraGitti": "",  // X İŞARETİ          
+   "paraGitmedi": "", // TİK İŞARETİ      
+   "paraROZET": "", // PARA İLE ALINAN YILDIRIM ROZET EMOJİSİ  
+   "onayRozet": "" , // ONAY ROZETİ
+   "modRozet": "", // MOD ROZETİ
+   "yetkiliRozet": "", // YETKİLİ ROZETİ
+   "destekçiRozet": "",
+   "evet": "",  // TİK İŞARET       
+   "hayır": "", // X İŞARETİ  
+   "kendineParaYollama": "", // KENDİNE PARA ATMAYA ÇALIŞANLAR İÇİN SİNİRLİ EMOJİSİ      
+   "konfeti": "", // MESLEK SAHİBİ OLUNCA RENGARENK KONFETİ ATIYOR  
+   "yukleniyor": "", // YÜKLENİYOR EMOJİ İŞTE :D     
+   "sinirli": "", // TİTREYEN SİNİRLİ :D       
+   "mutlu": "", // MUTLU EMOJİ                   
+   "rahatsızetme": "", // RAHATSIZ ETMEYİN EMOJİSİ    
+   "çevrimiçi": "", // ÇEVRİMİÇİ EMOJİSİ  
+   "yayıncı": "", // YAYINCI EMOJİSİ 
+   "çevrimdışı": "", // ÇEVRİM DIŞI EMOJİSİ  
+   "boşta": "", // BOŞTA EMOJİSİ     
+   "bot": "", // BOT EMOJİSİ          
+   "polis": "", // POLİS EMOJİ   
+   "Yvar": "", // YETKİLERİM KOMUDUNDAKİ TİK İŞARETİ
+   "Yyok": "", // YETKİLERİM KOMUDUNDAKİ X İŞARETİ
+   "yan": "", // > GİBİ EMOJİ İŞTE :ç
+   "kalpSarılmalı": "",
+   "olumlu": "",
+   "olumsuz": "",
+  
+  
+  
+  // AÇIK BONUS EMOJİLERİ -------------- >>>>>>>>>>
+  
+  "açıkB": "", // B
+  "açıkO": "", // O
+  "açıkN": "", // N
+  "açıkU": "", // U
+  "açıkS": "", // S
+  
+  // KAPALI BONUS EMOJİLERİ ---------------- >>>>>>>>>>>>>
+  
+  "kapalıO": ", // O
+  "kapalıN": "", // N
+  "kapalıU": "", // U
+  "kapalıS": "", // S
+}
