@@ -1,22 +1,26 @@
-const Discord = require("discord.js");
+const lucifeeer = require('discord.js');
 
-exports.run = (client, message) => {
+exports.run = async(client, message) => {
+    var Lucifer = message.mentions.users.first();
+    if(!Lucifer) return message.channel.send(new lucifeeer.MessageEmbed().setDescription("Lütfen Birisini Etiketleyin.").setColor("RED"))
 
-const FwhyCode = Math.floor(Math.random() * 100) + 1;
+    var efkarLevel = ["%1","%2","%4","%5","%8","%9","%11","%15","%16","%19","%24","%25","%31"/*sj*/,"%42","%45","%46","%47","%49","%53","%54","%57","%58","%61","%68","%73","%75","%81","%84","%96","%100"]
 
-return message.channel.send(`**FwhyCode** \n**Efkarınız:** **%${FwhyCode}** **Efkar** `);
+    var efkarRandom = efkarLevel[Math.floor(Math.random() * efkarLevel.length)];
 
-};
+    message.channel.send(new lucifeeer.MessageEmbed().setDescription(`${efkarRandom} Efkarlısın. <a:B_Sigara:802635594358325269>`).setColor("BLACK"))
 
+
+}
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: 0
-};
-
-exports.help = {
-  name: "efkarım",
-  description: "FwhyCode | Efkarınızı ölçer",
-  usage: "efkar Ölçer"
-};
+    enabled: true,
+    guildOnly: false,
+    aliases: ["efkar-ölç", "efkar"],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: "efkar-ölç",
+    description: "dasdas",
+    usage: "!efkar"
+  };

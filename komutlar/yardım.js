@@ -26,7 +26,7 @@ const embed = new Discord.MessageEmbed  ()
  ――――――――――――――――――――――――――――
 > <a:gold:686208112252026981> [ **!seviye-yardım**] → Seviye Komutları
  ――――――――――――――――――――――――――――
-> <:youtube:798553696426393600> [  **!abone-yardım**  ] Abone Komutları
+> <:youtube:798553696426393600> [**!abone-yardım**] → Abone Komutları
  ――――――――――――――――――――――――――――
 >     **<a:HaraketliEmoji198:802849819604680725> Bot Linkleri <a:HaraketliEmoji198:802849819604680725>**
 ――――――――――――――――――――――――――――

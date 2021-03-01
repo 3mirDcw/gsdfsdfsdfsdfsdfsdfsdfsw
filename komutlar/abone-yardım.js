@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-exports.run = async(client, message, args) => {
+exports.run = async(client, message) => {
 const baskan = new Discord.MessageEmbed()
        .setAuthor(`ShowTeam - Abone`)
        .setDescription(`

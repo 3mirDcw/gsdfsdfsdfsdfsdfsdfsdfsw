@@ -20,7 +20,7 @@ app.get("/", (request, response) => {
   console.log(Date.now() + " PİNGLENDİ ");
   response.sendStatus(200);
 });
-//app.listen(8000);
+//app.listen(8000);<
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
@@ -1794,47 +1794,6 @@ client.ayarlar = {
   renk: "RANDOM",
   version: "1.0.0"
 };
-
-// spam engel başlangıç
-
-const dctrat = require('dctr-antispam.js'); 
-
-var authors = [];
-var warned = [];
-
-var messageLog = [];
-
-client.on('message', async message => {
-const spam = await db.fetch(`spam.${message.guild.id}`);
-if(!spam) return;
-const maxTime = await db.fetch(`max.${message.guild.id}.${message.author.id}`);
-const timeout = await db.fetch(`time.${message.guild.id}.${message.author.id}`);
-db.add(`mesaj.${message.guild.id}.${message.author.id}`, 1)
-if(timeout) {
-const sayı = await db.fetch(`mesaj.${message.guild.id}.${message.author.id}`);
-if(Date.now() < maxTime) {
-  const westraaaaam = new Discord.MessageEmbed()
-  .setColor("RED")
-  .setDescription(` <@${message.author.id}> , **Bu Sunucuda Spam Yapmak Yasak!**`)
-  .setFooter(`Bu mesaj otomatik olarak silinecektir.`)
-
- message.channel.send(westraaaaam).then(msg => msg.delete({timeout: 1500}));
-  return message.delete();
-  
-}
-} else {
-db.set(`time.${message.guild.id}.${message.author.id}`, 'ok');
-db.set(`max.${message.guild.id}.${message.author.id}`, Date.now()+3000);
-setTimeout(() => {
-db.delete(`mesaj.${message.guild.id}.${message.author.id}`);
-db.delete(`time.${message.guild.id}.${message.author.id}`);
-}, 500) // default : 500
-}
-
-
-});
-
-// spam engel bitiş
 ////--------------BOTA DM ATANLAR BAŞLANGIÇ-------------////
 
 client.on("message", msg => {
@@ -1855,19 +1814,14 @@ client.on("message", msg => {
   if (msg.channel.bot) return;
 });
 ///--------BOTA DM ATANLAR SONU-------------////
-//7 24 sesli başlangıc 
-client.on("ready", () => {
-  client.channels.cache.get("803203712234946610").join();
-}) 
-//724 sesli son
 // eklendim
-client.on('guildCreate', async guild => { client.channels.get('814878350505803798').send(`${guild}, isimli sunucuya eklendim!`)})
+client.on('guildCreate', async guild => { client.channels.get('802940043521032284').send(`${guild}, isimli sunucuya eklendim!`)})
 // atıldım
-client.on('guildRemove', async guild => { client.channels.get('814878350505803798').send(`${guild}, isimli sunucudan atıldım.. :(`)})
+client.on('guildRemove', async guild => { client.channels.get('802940043521032284').send(`${guild}, isimli sunucudan atıldım.. :(`)})
 //10 üye altı
 client.on("guildCreate", guild => {
 
-let pinkcode = "814878350505803798"
+let pinkcode = "801090105292881922"
 
 if (guild.memberCount <  10) { //kişi sınırını ayarlayabilirsiniz
 
@@ -1876,17 +1830,6 @@ guild.leave()
 return client.channels.cache.get(pinkcode).send("Eklendiğim sunuculardan birisi 10 üye altında olduğu için çıktım.")
 };
 });
-//emojili sa as 
-client.on("message", async msg => {
-if(msg.content.toLowerCase() === "sa") {
-
-await msg.react('<a:752549401259409548:803581300971274240>');
-await msg.react('<a:762173994928701480:803581671432781866>');
-
-}
-
-});
-//emojili sa as bitiş
 //gold üye 
 client.on("message", async message => {
 
@@ -1966,51 +1909,3 @@ client.on("ready", () => {
   client.user.setStatus("idle");
   client.user.setActivity(`!yardım Shard 10/1`)
 })
-client.emojiler = {
-
-   "gold": "",  //?PARAM DAKİ ALTIN EMOJİSİ      
-   "paraGitti": "",  // X İŞARETİ          
-   "paraGitmedi": "", // TİK İŞARETİ      
-   "paraROZET": "", // PARA İLE ALINAN YILDIRIM ROZET EMOJİSİ  
-   "onayRozet": "" , // ONAY ROZETİ
-   "modRozet": "", // MOD ROZETİ
-   "yetkiliRozet": "", // YETKİLİ ROZETİ
-   "destekçiRozet": "",
-   "evet": "",  // TİK İŞARET       
-   "hayır": "", // X İŞARETİ  
-   "kendineParaYollama": "", // KENDİNE PARA ATMAYA ÇALIŞANLAR İÇİN SİNİRLİ EMOJİSİ      
-   "konfeti": "", // MESLEK SAHİBİ OLUNCA RENGARENK KONFETİ ATIYOR  
-   "yukleniyor": "", // YÜKLENİYOR EMOJİ İŞTE :D     
-   "sinirli": "", // TİTREYEN SİNİRLİ :D       
-   "mutlu": "", // MUTLU EMOJİ                   
-   "rahatsızetme": "", // RAHATSIZ ETMEYİN EMOJİSİ    
-   "çevrimiçi": "", // ÇEVRİMİÇİ EMOJİSİ  
-   "yayıncı": "", // YAYINCI EMOJİSİ 
-   "çevrimdışı": "", // ÇEVRİM DIŞI EMOJİSİ  
-   "boşta": "", // BOŞTA EMOJİSİ     
-   "bot": "", // BOT EMOJİSİ          
-   "polis": "", // POLİS EMOJİ   
-   "Yvar": "", // YETKİLERİM KOMUDUNDAKİ TİK İŞARETİ
-   "Yyok": "", // YETKİLERİM KOMUDUNDAKİ X İŞARETİ
-   "yan": "", // > GİBİ EMOJİ İŞTE :ç
-   "kalpSarılmalı": "",
-   "olumlu": "",
-   "olumsuz": "",
-  
-  
-  
-  // AÇIK BONUS EMOJİLERİ -------------- >>>>>>>>>>
-  
-  "açıkB": "", // B
-  "açıkO": "", // O
-  "açıkN": "", // N
-  "açıkU": "", // U
-  "açıkS": "", // S
-  
-  // KAPALI BONUS EMOJİLERİ ---------------- >>>>>>>>>>>>>
-  
-  "kapalıO": ", // O
-  "kapalıN": "", // N
-  "kapalıU": "", // U
-  "kapalıS": "", // S
-}
